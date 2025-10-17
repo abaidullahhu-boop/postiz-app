@@ -1,13 +1,20 @@
-import { ioRedis } from '@gitroom/nestjs-libraries/redis/redis.service';
-import Bottleneck from 'bottleneck';
-import { timer } from '@gitroom/helpers/utils/timer';
-import { BadBody } from '@gitroom/nestjs-libraries/integrations/social.abstract';
+import Bottleneck from "bottleneck";
+import IORedis from "ioredis";
+import { ioRedis as gitroomRedis } from "@gitroom/nestjs-libraries/redis/redis.service";
+import { BadBody } from "@gitroom/nestjs-libraries/integrations/social.abstract";
 
-const connection = new Bottleneck.IORedisConnection({
-  client: ioRedis,
-});
+// 🧩 Fallback logic — works both locally and in Railway
+const redisClient =
+  gitroomRedis?.setMaxListeners // if it's a valid redis instance
+    ? gitroomRedis
+    : new IORedis(process.env.REDIS_URL!, {
+        maxRetriesPerRequest: null,
+        enableReadyCheck: false,
+      });
 
-const mapper = {} as Record<string, Bottleneck>;
+const connection = new Bottleneck.IORedisConnection({ client: redisClient });
+
+const mapper: Record<string, Bottleneck> = {};
 
 export const concurrency = async <T>(
   identifier: string,
@@ -15,38 +22,30 @@ export const concurrency = async <T>(
   func: (...args: any[]) => Promise<T>,
   ignoreConcurrency = false
 ) => {
-  const strippedIdentifier = identifier.toLowerCase().split('-')[0];
+  const strippedIdentifier = identifier.toLowerCase().split("-")[0];
+
   mapper[strippedIdentifier] ??= new Bottleneck({
-    id: strippedIdentifier + '-concurrency-new',
+    id: strippedIdentifier + "-concurrency-new",
     maxConcurrent,
-    datastore: 'ioredis',
+    datastore: "ioredis",
     connection,
     minTime: 1000,
   });
-  let load: T;
 
-  if (ignoreConcurrency) {
-    return await func();
-  }
+  if (ignoreConcurrency) return func();
 
   try {
-    load = await mapper[strippedIdentifier].schedule<T>(
+    return await mapper[strippedIdentifier].schedule<T>(
       { expiration: 60000 },
-      async () => {
-        try {
-          return await func();
-        } catch (err) {}
-      }
+      async () => await func()
     );
   } catch (err) {
-    console.log(err);
+    console.error("Concurrency error:", err);
     throw new BadBody(
       identifier,
       JSON.stringify({}),
       {} as any,
-      `Something is wrong with ${identifier}`
+      `Something went wrong with ${identifier}`
     );
   }
-
-  return load;
 };
