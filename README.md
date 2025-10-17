@@ -34,4 +34,4 @@
 Kuku Social is 100% open-source licensed under the [GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE).
 
 ## 🙏 Credits
-This project builds upon foundational work originally created by the Postiz team. We extend our gratitude for their open-source contribution to the community.
+Kuku Social is based on original work by the creators of Postiz. We thank them for their contribution to the open-source community.
