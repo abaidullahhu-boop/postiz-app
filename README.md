@@ -3,10 +3,15 @@
   <img src="https://img.shields.io/badge/License-AGPL%203.0-blue.svg" alt="License">
 </a>
 </p>
+
+<p align="center">
+  <img src="https://github.com/sysfora/kuku/blob/main/Logo.png" alt="Kuku Social Logo" width="200">
+</p>
+
 <div align="center">
   <strong>
     <h2>✨ The ultimate open-source AI social media management app ✨</h2><br />
-    <a href="https://kukusocial.com">Kuku Social</a>: An open-soruce alternative to Buffer, Hypefury, and more.<br /><br />
+    <a href="https://kukusocial.com">Kuku Social</a>: An open-source alternative to Buffer, Hypefury, and more.<br /><br />
   </strong>
   Kuku Social gives you everything you need to manage your social media posts,<br />grow your audience, and grow your business.
 </div>
