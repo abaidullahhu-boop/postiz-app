@@ -6,7 +6,7 @@
 <div align="center">
   <strong>
     <h2>✨ The ultimate open-source AI social media management app ✨</h2><br />
-    <a href="https://kukusocial.com">Kuku Social</a>: An alternative to Buffer, Hypefury, Twitter Hunter, and more.<br /><br />
+    <a href="https://kukusocial.com">Kuku Social</a>: An open-soruce alternative to Buffer, Hypefury, and more.<br /><br />
   </strong>
   Kuku Social gives you everything you need to manage your social media posts,<br />grow your audience, and grow your business.
 </div>
