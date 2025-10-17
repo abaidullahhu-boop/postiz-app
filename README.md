@@ -5,13 +5,13 @@
 </p>
 <div align="center">
   <strong>
-    <h2>The ultimate open-source AI social media management app</h2><br />
+    <h2>✨ The ultimate open-source AI social media management app ✨</h2><br />
     <a href="https://kukusocial.com">Kuku Social</a>: An alternative to Buffer, Hypefury, Twitter Hunter, and more.<br /><br />
   </strong>
   Kuku Social gives you everything you need to manage your social media posts,<br />grow your audience, and grow your business.
 </div>
 
-## ✨ Features
+## 🪄 Features
 - **Streamlined Social Account Management**: Bring all your social media accounts together in one place for smarter and more efficient management.  
 - **Advanced Analytics**: Kuku Social provides detailed analytics for each platform according to the data shared.  
 - **Team Collaboration and Workspaces**: Foster team collaboration. Discuss ideas, manage tasks, and monitor performance, all from a centralized platform.  
