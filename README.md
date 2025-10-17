@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/sysfora/kuku/blob/main/Logo.png" alt="Kuku Social Logo" width="200">
+  <img src="https://github.com/sysfora/kuku/blob/main/Logo.png" alt="Kuku Social Logo" width="400">
 </p>
 
 <div align="center">
