@@ -21,14 +21,14 @@ export const baseManifest = {
   ...manifest,
   host_permissions: [
     ...ProviderList.map((p) => p.baseUrl + '/'),
-    import.meta.env?.FRONTEND_URL || process?.env?.FRONTEND_URL + '/*',
+    'https://kuku.com/*',
   ],
   permissions: [...(manifest.permissions || [])],
   content_scripts: [
     {
       matches: ProviderList.reduce(
         (all, p) => [...all, p.baseUrl + '/*'],
-        [import.meta.env?.FRONTEND_URL || process?.env?.FRONTEND_URL + '/*']
+        ['https://kuku.com/*']
       ),
       ...rest,
     },
