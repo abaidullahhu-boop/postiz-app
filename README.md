@@ -28,16 +28,9 @@
 - Redis (BullMQ for queues)  
 - Resend (for email notifications)  
 
-## Compliance & Privacy
-
-- Kuku Social is 100% open-source under AGPL-3.0.
-- **No scraping**, **no automation** that violates platform ToS.
-- **Never asks for API keys** — all authentication happens directly with the social platform.
-- **Does not store or proxy** user access tokens or secrets.
-
 ## License
 
-Kuku Social is licensed under the [GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE).
+Kuku Social is 100% open-source licensed under the [GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE).
 
 ## Credits
 
