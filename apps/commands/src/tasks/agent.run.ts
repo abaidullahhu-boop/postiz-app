@@ -1,6 +1,7 @@
 import { Command } from 'nestjs-command';
 import { Injectable } from '@nestjs/common';
 import { AgentGraphService } from '@gitroom/nestjs-libraries/agent/agent.graph.service';
+import { GeneratorDto } from '@gitroom/nestjs-libraries/dtos/generator/generator.dto';
 
 @Injectable()
 export class AgentRun {
@@ -10,6 +11,13 @@ export class AgentRun {
     describe: 'Run the agent',
   })
   async agentRun() {
-    console.log(await this._agentGraphService.createGraph('hello', true));
+    const generatorDto: GeneratorDto = {
+      research: 'hello',
+      isPicture: true,
+      format: 'one_short',
+      tone: 'personal'
+    };
+    
+    console.log(await this._agentGraphService.start('test-org-id', generatorDto));
   }
 }
