@@ -36,7 +36,7 @@ export default async function AuthLayout({
                 {isGeneralServerSide() ? (
                   <></>
                 ) : (
-                  <div className="text-[40px]">{t('gitroom', 'Gitroom')}</div>
+                  <div className="text-[40px]">kuku</div>
                 )}
               </div>
             </div>
